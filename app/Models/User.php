@@ -21,6 +21,19 @@ class User extends Authenticatable implements MustVerifyEmailContract, JWTSubjec
       notify as protected laravelNotify;
     }
 
+    protected $fillable = [
+        'name', 'phone', 'email', 'password', 'introduction', 'avatar',
+        'weixin_openid', 'weixin_unionid'
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token', 'weixin_openid', 'weixin_unionid'
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
     public function notify($instance)
     {
         // 如果要通知的人是当前用户，就不必通知了！
@@ -42,19 +55,6 @@ class User extends Authenticatable implements MustVerifyEmailContract, JWTSubjec
         $this->save();
         $this->unreadNotifications->markAsRead();
     }
-
-    protected $fillable = [
-        'name', 'phone', 'email', 'password', 'introduction', 'avatar',
-        'weixin_openid', 'weixin_unionid'
-    ];
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 
     public function topics()
     {
