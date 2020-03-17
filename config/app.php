@@ -163,10 +163,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
 
+
         /*
          * Package Service Providers...
          */
-
+        //\SocialiteProviders\Manager\ServiceProvider::class, // add
         /*
          * Application Service Providers...
          */
@@ -176,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\EasySmsServiceProvider::class,
+
 
     ],
 
