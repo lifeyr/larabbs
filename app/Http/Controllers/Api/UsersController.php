@@ -68,4 +68,5 @@ class UsersController extends Controller
         UserResource::wrap('data');
         return UserResource::collection($user->getActiveUsers());
     }
+
 }
