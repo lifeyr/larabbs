@@ -20,4 +20,9 @@ class NotificationsController extends Controller
             'unread_count' => $request->user()->notification_count,
         ]);
     }
+
+    public function read(Request $request)
+    {
+        $request->user()->markAsRead();
+    }
 }
